@@ -10,8 +10,8 @@ body{
     background-size: cover;
     color: white;
 }
-.main-container{
-    background-color: rgb(211, 211, 211, 0.7);
+.container{
+    width: 100%;
 }
 
 .container-game{
@@ -24,14 +24,16 @@ body{
 }
 .container-hangman{
     position: absolute;
+    min-width: 320px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 .center-image{
     position: absolute;
-    height: 220px;
-    top: 40%;
+    height: 200px;
+    width: 320px;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -45,47 +47,55 @@ body{
     height: 30px;
 }
 .addWord-container{
-    padding: 10px;
     margin-bottom: 10px;
     height: 30px;
     flex-wrap: wrap;
     text-align: center;
 }
+.addWord-container button{
+    height: 30px;
+}
 .keyboard button{
     margin: 1px;
 }
 .container-keyboard{
-    margin: auto;
+    width: 100%;
+    margin-left: 5px;
     text-align: center;
     background-color: lightgray;
-    max-width: 310px;
 }
-h3{
-    margin: 3px;
-    background-color: lightslategray;
-    width: 100%;
-    text-align: center;
+button{
     cursor: pointer;
-    user-select: none;
+}
+input[type="text"]{
+    background-color: black;
+    border: none;
+    height: 30px;
+    outline: none;
+    color: white;
+}
+.container-btn button{
+    width: 45%;
+    transition: 0.3s;
 }
 .message{
     position: absolute;
-    color: black;
     overflow-wrap: break-word;
     word-break: break-word;
     width: 100%;
     top: 40%;
     left: 50%;
+    font-weight: 600;
     transform: translate(-50%, -50%);
 }
-.underscore{
-    color: black;
-}
-.usedLetters{
-    color: black;
+.container-btn button:hover{
+    overflow: hidden;
+    transform: scale(1.05);
+    letter-spacing: 0.5px;
 }
 #imagen{
-    width: 100px;
+    width: 160px;
+    filter: invert(1);
 }
 @media screen and (max-width: 640px) {
     .center-image{

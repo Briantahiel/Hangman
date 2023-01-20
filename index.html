@@ -27,18 +27,17 @@
             </div>
                 <div>
                     <div class="addWord-container">
-                        <input type="text" autofocus id="btn-addWord" />
-                        <button id="newWord" onclick="addWord()">Add a new word</button> 
+                        <input type="text" autofocus  id="btn-addWord" />
                     </div>
                 </div> 
             <div class="container-btn">
-                <input
+                <button
                     class="btn-start"
                     id="startGame"
                     type="submit"
-                    value="Start Game"
                     onclick="startGame()"
-                />
+                >Start Game</button>
+                <button id="addWord-btn" onclick="addWord()">Add a new word</button> 
                 <button class="gameOver" onclick="gameOver()">End Game</button>
             </div>
         </div>
