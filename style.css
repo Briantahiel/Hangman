@@ -3,17 +3,17 @@ body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("./images/background.jpg");
+    background-image: url("./images/background1.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: black;
+    font-weight: 600;
 }
 .container{
     width: 100%;
 }
-
 .container-game{
     height: 200px;
 }
@@ -59,24 +59,30 @@ body{
     margin: 1px;
 }
 .container-keyboard{
-    width: 100%;
-    margin-left: 5px;
+    width: 95%;
+    margin-left: 13px;
     text-align: center;
-    background-color: lightgray;
+    border-radius: 5px;
+    background-color: rgb(143, 105, 143, 0.8);
 }
 button{
+    color: rgb(170, 121, 192);
     cursor: pointer;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
 }
 input[type="text"]{
-    background-color: black;
+    background-color: rgb(5, 5, 5, 0.3);
     border: none;
     height: 30px;
     outline: none;
+    border-radius: 5px;
     color: white;
 }
 .container-btn button{
     width: 45%;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 .message{
     position: absolute;
@@ -89,9 +95,11 @@ input[type="text"]{
     transform: translate(-50%, -50%);
 }
 .container-btn button:hover{
-    overflow: hidden;
+    /* overflow: hidden; */
     transform: scale(1.05);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    background-color: rgb(170, 121, 192);
+    color: white;
 }
 #imagen{
     width: 160px;

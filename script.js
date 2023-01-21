@@ -73,10 +73,11 @@ for (let i = 0; i < btn_letters.length; i++) {
       btn_letters[i].disabled = true;
     });
   }
+
 function startGame() {
   btn.disabled = true;
   usedLetters = [];
-  countFail = 0;
+  countFail = 1;
   countHit = 0;  
   document.querySelector(".message").style.visibility = "hidden";
   document.querySelector(".gameOver").style.display = "block";
@@ -103,7 +104,6 @@ function clickOnLetter(e) {
   let btn = e.target;
   const letter = btn.innerHTML;
   let ifGuessed = false;
-
   for (let i in randomWord) {
     document.querySelector(".underscore").innerHTML = underscore;
     if (letter == randomWord[i]) {
@@ -126,9 +126,9 @@ function clickOnLetter(e) {
     showMessage();
     endGame();
   }
-  usedLetters.push(letter);
-  let onlyOnes = [...new Set(usedLetters)];
-  document.querySelector(".usedLetters").innerHTML = onlyOnes;
+  //usedLetters.push(letter);
+  //let onlyOnes = [...new Set(usedLetters)];
+  //document.querySelector(".usedLetters").innerHTML = onlyOnes;
 }
 function endGame() {
   document.querySelector(".gameOver").style.display = "none";
