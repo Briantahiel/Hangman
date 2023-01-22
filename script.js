@@ -32,7 +32,6 @@ newW.addEventListener("keypress", function(event){
         }
   });
 //
-
 function clearValue(){
     newW = document.querySelector("#btn-addWord").value = "";
     newH = document.querySelector("#btn-addHelp").value = "";
@@ -54,32 +53,30 @@ let words = [
 
 function addWord() {
     /* Converting the word to uppercase, removing accents and trimming the word. This can be omitted by what was done here(*) but not toUpperCase*/
-     newW = document.querySelector("#btn-addWord").value.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
-     newH = document.querySelector("#btn-addHelp").value.normalize("NFD").trim();
-    //  let inputWord = newW.value;
-    console.log("input word!!!",newW)
-    let hasSpaces = newW.includes(" ");
-    
-     if(newW == ""){
-       alert("Please enter a word")
-     }
-   
-     else if(newW.length > 18){
-       alert("It exceeds the letter limit")
-     }
-     else if(hasSpaces == true){
-       alert("Spaces are not accepted")
-     }
-     else if(!words.includes(newW)){
-       words.push({title: newW, description: newH ? newH : "No description available"});
-       alert("The word was added correctly!");
-       console.log(words);
-     }
-     else{
-       alert("Repeated word")
-     }
-     clearValue();
-   }
+    let isDuplicated = false;
+    newW = document.querySelector("#btn-addWord").value.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    newH = document.querySelector("#btn-addHelp").value.normalize("NFD").trim();
+    // let hasSpaces = newW.includes(" "); 
+
+    if(newW == "" || newW.length > 12){
+        alert("Please enter a word and no longer than 12 characters");
+        return
+    }
+    for(let i = 0; i < words.length; i++){
+        
+        if(words[i].title.toUpperCase() == newW.toUpperCase()){
+            alert("Repeated word. Choose another one");
+            isDuplicated = true;
+            break;
+            } 
+        }
+        if(!isDuplicated && newW !== ""){
+            words.push({title: newW, description: newH ? newH : "No description available"});
+            alert("The word was added correctly!");  
+        }
+        console.log("new words", words)
+     clearValue(); 
+}
 
 const btn = document.getElementById("startGame");
 const btnEndGame = document.getElementById("");
@@ -107,7 +104,6 @@ function startGame() {
   document.querySelector(".addWord-container").style.visibility = "hidden";
   document.querySelector(".addHelp-container").style.visibility = "hidden";
   document.getElementById("imagen").style.visibility = "visible";
-  //document.querySelector(".usedLetters").style.visibility = "visible";
   document.querySelector(".usedLetters").innerHTML = "";
   document.querySelector(".container-keyboard").style.visibility = "visible";
   document.querySelector(".container-game").style.visibility = "visible";
