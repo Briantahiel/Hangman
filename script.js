@@ -8,7 +8,7 @@ String.prototype.replaceAt = function (index, character) {
 };
 
 let gameOverBtn = document.querySelector(".gameOver").style.display = "none";
-document.querySelector(".container-keyboard").style.visibility = "hidden";
+document.querySelector(".container-keyboard").style.display = "none";
 document.querySelector(".container-game").style.visibility = "visible";
 document.querySelector(".btn-help").style.display = "none";
 let btn_letters = document.querySelectorAll(".keyboard button");
@@ -101,11 +101,11 @@ function startGame() {
   document.querySelector("#addWord-btn").style.display = "none";
   document.querySelector(".underscore").style.visibility = "visible";
   document.querySelector(".gameOver").style.visibility = "visible";
-  document.querySelector(".addWord-container").style.visibility = "hidden";
-  document.querySelector(".addHelp-container").style.visibility = "hidden";
+  document.querySelector(".addWord-container").style.display = "none";
+  document.querySelector(".addHelp-container").style.display = "none";
   document.getElementById("imagen").style.visibility = "visible";
   document.querySelector(".usedLetters").innerHTML = "";
-  document.querySelector(".container-keyboard").style.visibility = "visible";
+  document.querySelector(".container-keyboard").style.display = "block";
   document.querySelector(".container-game").style.visibility = "visible";
   document.getElementById("imagen").src = `./images/part1.png`;
   document.querySelector(".underscore").innerHTML = "";
@@ -158,11 +158,11 @@ function endGame() {
   document.querySelector(".usedLetters").style.visibility = "hidden";
   document.querySelector(".underscore").style.visibility = "hidden";
   document.getElementById("imagen").style.visibility = "hidden";
-  document.querySelector(".addWord-container").style.visibility = "visible";
-  document.querySelector(".addHelp-container").style.visibility = "visible";
+  document.querySelector(".addWord-container").style.display = "block";
+  document.querySelector(".addHelp-container").style.display = "block";
   btn.disabled = false;
   gameOverBtn = document.querySelector(".gameOver").disabled = true;
-  document.querySelector(".container-keyboard").style.visibility = "hidden";
+  document.querySelector(".container-keyboard").style.display = "none";
     for (let i = 0; i < btn_letters.length; i++) {
         btn_letters[i].disabled = false;
   }
@@ -174,8 +174,8 @@ function gameOver() {
   document.querySelector(".btn-help").style.display = "none";
   document.querySelector(".gameOver").style.display = "none";
   document.querySelector("#addWord-btn").style.display = "block";
-  document.querySelector(".addWord-container").style.visibility = "visible";
-  document.querySelector(".addHelp-container").style.visibility = "visible";
+  document.querySelector(".addWord-container").style.display = "block";
+  document.querySelector(".addHelp-container").style.display = "block";
   document.getElementById("imagen").style.visibility = "hidden";
   document.querySelector(".underscore").style.visibility = "hidden";
   gameOverBtn = document.querySelector(".gameOver").disabled = true;
@@ -185,7 +185,7 @@ function gameOver() {
   countFail = 0;
   countHit = 0;
   btn.disabled = false;
-  document.querySelector(".container-keyboard").style.visibility = "hidden";
+  document.querySelector(".container-keyboard").style.display = "none";
   document.querySelector(".container-game").style.visibility = "hidden";
   document.querySelector(".usedLetters").style.visibility = "hidden";
 }

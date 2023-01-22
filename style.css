@@ -38,6 +38,7 @@ main{
 }
 .container-game{
     height: 200px;
+    margin-bottom: 30px;
 }
 .container-image{
     display: flex;
