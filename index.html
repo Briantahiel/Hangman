@@ -8,38 +8,51 @@
     <title>Document</title>
   </head>
   <body>
+    <main>
+        <h1>Hangman Game</h1>
+    </main>
     <div class="container">
       <div class="container-hangman">
         <div class="main-container">
-            <div class="container-game">
-                <div class="container-image">
-                    <div class="center-image">
-                       <img id="imagen" src="" alt="" />
-                        <div class="container-word">
-                            <p class="showWord"></p>
-                            <p class="underscore"></p>
-                            <p class="letter"></p>
-                            <p class="usedLetters"></p>
-                            <p class="message"></p>
-                        </div> 
-                    </div>
-                </div>    
+          <div class="container-game">
+            <div class="container-image">
+              <div class="center-image">
+                <img id="imagen" src="" alt="" />
+                <div class="container-word">
+                  <p class="showWord"></p>
+                  <p class="underscore"></p>
+                  <p class="letter"></p>
+                  <p class="usedLetters"></p>
+                  <p class="message"></p>
+                </div>
+              </div>
             </div>
-                <div>
-                    <div class="addWord-container">
-                        <input type="text" autofocus  id="btn-addWord" />
-                    </div>
-                </div> 
-            <div class="container-btn">
-                <button
-                    class="btn-start"
-                    id="startGame"
-                    type="submit"
-                    onclick="startGame()"
-                >Start Game</button>
-                <button id="addWord-btn" onclick="addWord()">Add a new word</button> 
-                <button class="gameOver" onclick="gameOver()">End Game</button>
+          </div>
+          <div>
+            <div class="addWord-container">
+              <input type="text" autofocus id="btn-addWord" />
             </div>
+          </div>
+          <div class="container-btn">
+            <button
+              class="btn-start"
+              id="startGame"
+              type="submit"
+              onclick="startGame()"
+            >
+              Start Game
+            </button>
+            <button
+            class="btn-help"
+            id="getHelp"
+            type="submit"
+            onclick="getHelp()"
+          >
+            Help
+          </button>
+            <button id="addWord-btn" onclick="addWord()">New word</button>
+            <button class="gameOver" onclick="gameOver()">End Game</button>
+          </div>
         </div>
         <div class="container-keyboard" id="container-keyboard">
           <div class="keyboard" id="letters">
@@ -78,6 +91,9 @@
         </div>
       </div>
     </div>
+    <footer>
+        <h5>Created by BrianG</h5>
+    </footer>
     <script src="./script.js"></script>
   </body>
 </html>

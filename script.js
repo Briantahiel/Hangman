@@ -10,6 +10,7 @@ String.prototype.replaceAt = function (index, character) {
 let gameOverBtn = document.querySelector(".gameOver").style.display = "none";
 document.querySelector(".container-keyboard").style.visibility = "hidden";
 document.querySelector(".container-game").style.visibility = "visible";
+document.querySelector(".btn-help").style.display = "none";
 let btn_letters = document.querySelectorAll(".keyboard button");
 
 function showMessage(){
@@ -62,7 +63,22 @@ function addWord() {
   clearValue();
 }
 let randomWord = "";
-let words = ["JAVA", "JAVASCRIPT", "PYTHON"];
+let words = [
+    { title: "JAVA", description: "Programming language. Its logo is a hot drink." },
+    { title: "PYTHON", description: "Programming language. If it were real, it could bite you." },
+    { title: "JAVASCRIPT", description: "Programming language. Fact, this game is made with this language." },
+    { title: "BOOLEAN", description: "This help could be true or false, but not something else." },
+    { title: "ITERATION", description: "The process of selecting these words at random is this action itself." },
+    { title: "BUG", description: "It can cause a glitch or imperfection to any computer program." },
+    { title: "PROGRAMMER", description: "Easypeasy. This is the person who writes or creates code among other actions." },
+    { title: "LOOP", description: "A snippet of code that iterates until a condition is met." },
+];
+
+// for(let i = 0; i < words.length; i++){
+//     console.log(words[i].title);
+//     console.log(words[i].description)
+// }
+
 const btn = document.getElementById("startGame");
 const btnEndGame = document.getElementById("");
 btn.addEventListener("click", startGame);
@@ -79,13 +95,14 @@ function startGame() {
   usedLetters = [];
   countFail = 1;
   countHit = 0;  
+  document.querySelector(".btn-start").style.display = "none";
+  document.querySelector(".btn-help").style.display = "block";
   document.querySelector(".message").style.visibility = "hidden";
   document.querySelector(".gameOver").style.display = "block";
   document.querySelector("#addWord-btn").style.display = "none";
   document.querySelector(".underscore").style.visibility = "visible";
   document.querySelector(".gameOver").style.visibility = "visible";
   document.querySelector(".addWord-container").style.visibility = "hidden";
-  gameOverBtn = document.querySelector(".gameOver").disabled = false;
   document.getElementById("imagen").style.visibility = "visible";
   //document.querySelector(".usedLetters").style.visibility = "visible";
   document.querySelector(".usedLetters").innerHTML = "";
@@ -93,13 +110,17 @@ function startGame() {
   document.querySelector(".container-game").style.visibility = "visible";
   document.getElementById("imagen").src = `./images/part1.png`;
   document.querySelector(".underscore").innerHTML = "";
+  gameOverBtn = document.querySelector(".gameOver").disabled = false;
   const countWords = words.length;
   const randomValue = Math.floor(Math.random() * countWords);
-  randomWord = words[randomValue];
+  randomWord = words[randomValue].title;
+  description = words[randomValue].description;
   underscore = randomWord.replace(/./g, "_ ");
   document.querySelector(".underscore").innerHTML = underscore;
 }
-
+function getHelp(){
+    alert(description)
+}
 function clickOnLetter(e) {
   let btn = e.target;
   const letter = btn.innerHTML;
@@ -131,14 +152,16 @@ function clickOnLetter(e) {
   //document.querySelector(".usedLetters").innerHTML = onlyOnes;
 }
 function endGame() {
+  document.querySelector(".btn-start").style.display = "block";
   document.querySelector(".gameOver").style.display = "none";
+  document.querySelector(".btn-help").style.display = "none";
   document.querySelector("#addWord-btn").style.display = "block";
   document.querySelector(".usedLetters").style.visibility = "hidden";
   document.querySelector(".underscore").style.visibility = "hidden";
-  gameOverBtn = document.querySelector(".gameOver").disabled = true;
   document.getElementById("imagen").style.visibility = "hidden";
   document.querySelector(".addWord-container").style.visibility = "visible";
   btn.disabled = false;
+  gameOverBtn = document.querySelector(".gameOver").disabled = true;
   document.querySelector(".container-keyboard").style.visibility = "hidden";
     for (let i = 0; i < btn_letters.length; i++) {
         btn_letters[i].disabled = false;
@@ -147,12 +170,14 @@ function endGame() {
 
 function gameOver() {
   alert("Are you sure?");
+  document.querySelector(".btn-start").style.display = "block";
+  document.querySelector(".btn-help").style.display = "none";
   document.querySelector(".gameOver").style.display = "none";
   document.querySelector("#addWord-btn").style.display = "block";
-  gameOverBtn = document.querySelector(".gameOver").disabled = true;
   document.querySelector(".addWord-container").style.visibility = "visible";
   document.getElementById("imagen").style.visibility = "hidden";
   document.querySelector(".underscore").style.visibility = "hidden";
+  gameOverBtn = document.querySelector(".gameOver").disabled = true;
   for (let i = 0; i < btn_letters.length; i++) {
     btn_letters[i].disabled = false;
   }
