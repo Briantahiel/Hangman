@@ -18,6 +18,14 @@ body{
     background-size: cover;
     color: black;
 }
+.input-container input{
+    display: flex;
+    margin: auto;
+    height: 30px;
+    margin: 0px 0 15px 12px;
+    width: 300px;
+}
+
 main{
     width: 230px;
     position: relative;

@@ -35,33 +35,9 @@ newW.addEventListener("keypress", function(event){
 
 function clearValue(){
     newW = document.querySelector("#btn-addWord").value = "";
+    newH = document.querySelector("#btn-addHelp").value = "";
 }
-function addWord() {
- /* Converting the word to uppercase, removing accents and trimming the word. This can be omitted by what was done here(*) but not toUpperCase*/
-  newW = document.querySelector("#btn-addWord").value.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
-  
-  let hasSpaces = newW.includes(" ");
- 
-  if(newW == ""){
-    alert("Please enter a word")
-  }
 
-  else if(newW.length > 18){
-    alert("It exceeds the letter limit")
-  }
-  else if(hasSpaces == true){
-    alert("Spaces are not accepted")
-  }
-  else if(!words.includes(newW)){
-    words.push(newW);
-    alert("The word was added correctly!");
-    console.log(words);
-  }
-  else{
-    alert("Repeated word")
-  }
-  clearValue();
-}
 let randomWord = "";
 let words = [
     { title: "JAVA", description: "Programming language. Its logo is a hot drink." },
@@ -72,12 +48,38 @@ let words = [
     { title: "BUG", description: "It can cause a glitch or imperfection to any computer program." },
     { title: "PROGRAMMER", description: "Easypeasy. This is the person who writes or creates code among other actions." },
     { title: "LOOP", description: "A snippet of code that iterates until a condition is met." },
+    { title: "CSS", description: "Style sheet language used to describe the presentation of a document written in a markup language."},
+    { title: "HTML", description: "Markup language for creating web pages."},
 ];
 
-// for(let i = 0; i < words.length; i++){
-//     console.log(words[i].title);
-//     console.log(words[i].description)
-// }
+function addWord() {
+    /* Converting the word to uppercase, removing accents and trimming the word. This can be omitted by what was done here(*) but not toUpperCase*/
+     newW = document.querySelector("#btn-addWord").value.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+     newH = document.querySelector("#btn-addHelp").value.normalize("NFD").trim();
+    //  let inputWord = newW.value;
+    console.log("input word!!!",newW)
+    let hasSpaces = newW.includes(" ");
+    
+     if(newW == ""){
+       alert("Please enter a word")
+     }
+   
+     else if(newW.length > 18){
+       alert("It exceeds the letter limit")
+     }
+     else if(hasSpaces == true){
+       alert("Spaces are not accepted")
+     }
+     else if(!words.includes(newW)){
+       words.push({title: newW, description: newH ? newH : "No description available"});
+       alert("The word was added correctly!");
+       console.log(words);
+     }
+     else{
+       alert("Repeated word")
+     }
+     clearValue();
+   }
 
 const btn = document.getElementById("startGame");
 const btnEndGame = document.getElementById("");
@@ -103,6 +105,7 @@ function startGame() {
   document.querySelector(".underscore").style.visibility = "visible";
   document.querySelector(".gameOver").style.visibility = "visible";
   document.querySelector(".addWord-container").style.visibility = "hidden";
+  document.querySelector(".addHelp-container").style.visibility = "hidden";
   document.getElementById("imagen").style.visibility = "visible";
   //document.querySelector(".usedLetters").style.visibility = "visible";
   document.querySelector(".usedLetters").innerHTML = "";
@@ -160,6 +163,7 @@ function endGame() {
   document.querySelector(".underscore").style.visibility = "hidden";
   document.getElementById("imagen").style.visibility = "hidden";
   document.querySelector(".addWord-container").style.visibility = "visible";
+  document.querySelector(".addHelp-container").style.visibility = "visible";
   btn.disabled = false;
   gameOverBtn = document.querySelector(".gameOver").disabled = true;
   document.querySelector(".container-keyboard").style.visibility = "hidden";
@@ -175,6 +179,7 @@ function gameOver() {
   document.querySelector(".gameOver").style.display = "none";
   document.querySelector("#addWord-btn").style.display = "block";
   document.querySelector(".addWord-container").style.visibility = "visible";
+  document.querySelector(".addHelp-container").style.visibility = "visible";
   document.getElementById("imagen").style.visibility = "hidden";
   document.querySelector(".underscore").style.visibility = "hidden";
   gameOverBtn = document.querySelector(".gameOver").disabled = true;
