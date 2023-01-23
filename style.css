@@ -33,6 +33,11 @@ main{
     text-align: center;
     margin: auto;
 }
+.underscore{
+    color: black;
+    background-color: rgb(143, 105, 143, 0.8);
+    font-weight: 800;
+}
 .container{
     width: 100%;
 }
@@ -44,6 +49,11 @@ main{
     display: flex;
     justify-content: center;
     text-align: center;
+}
+.container-word{
+    width: 305px;
+    margin: auto;
+    margin-left: 13px;
 }
 .container-hangman{
     position: absolute;
