@@ -74,7 +74,6 @@ function addWord() {
             words.push({title: newW, description: newH ? newH : "No description available"});
             alert("The word was added correctly!");  
         }
-        console.log("new words", words)
      clearValue(); 
 }
 
