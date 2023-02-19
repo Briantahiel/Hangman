@@ -116,9 +116,18 @@ function startGame() {
   underscore = randomWord.replace(/./g, "_ ");
   document.querySelector(".underscore").innerHTML = underscore;
 }
+
+let help = document.querySelector("#getHelp");
+let dialog = document.querySelector(".dialog");
+let cancel = document.querySelector("#cancel");
+help.addEventListener('click', () => dialog.showModal());
+cancel.addEventListener('click', () => dialog.close());
 function getHelp(){
-    alert(description)
+  document.querySelector("#helpText").innerHTML = description;
+  // alert(description)
 }
+
+  
 function clickOnLetter(e) {
   let btn = e.target;
   const letter = btn.innerHTML;
